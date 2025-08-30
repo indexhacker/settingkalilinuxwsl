@@ -1,21 +1,5 @@
-Настройка kali linux wsl ручному
+Настройка kali linux 
+скачать скрипт и запустить 
+перед устоновите wget
 
-echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
-sudo apt update && sudo apt upgrade -y && sudo apt install git wget kali-win-kex curl openjdk-21-jdk python3 -y
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
-Для россии не используйте переводчик 
+wget https://raw.githubusercontent.com/indexhacker/settingkalilinuxwsl/refs/heads/main/install.sh && chmod +x install.sh && bash install.sh
